@@ -4,14 +4,14 @@
   "description": "samplesample",
   "main": "index.js",
   "scripts": {
-    "watch:sass": "node-sass sass/main.scss css/style.css -w",
+    "watch:sass": "node-sass sass/main.scss css/style.min.css -w",
     "watch:js": "watchify -t babelify ./js/script.js -o ./js/script.min.js",
     "start": "npm-run-all --parallel watch:sass watch:js",
     "compile:sass": "node-sass sass/main.scss css/style.comp.css",
     "prefix:css": "postcss --use autoprefixer -b 'last 10 versions' css/style.comp.css -o css/style.prefix.css",
-    "compress:css": "node-sass css/style.prefix.css css/style.css --output-style compressed",
-    "compress:js": "browserify ./js/script.js -t babelify --outfile ./js/script.js",
-    "minify:js": "uglifyjs ./js/script.js -c --source-map --output ./js/script.min.js",
+    "compress:css": "node-sass css/style.prefix.css css/style.min.css --output-style compressed",
+    "compress:js": "browserify ./js/script.js -t babelify --outfile ./js/script.comp.js",
+    "minify:js": "uglifyjs ./js/script.comp.js -c --source-map --output ./js/script.min.js",
     "build": "npm-run-all compile:sass prefix:css compress:css compress:js minify:js"
   },
   "author": "kote2",
@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "babel-polyfill": "^6.26.0",
+    "jquery": "^3.3.1",
     "uglify-js": "^3.4.2"
   }
 }
