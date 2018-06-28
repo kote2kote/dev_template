@@ -1,0 +1,183 @@
+.container {
+  width: 300px;
+  height: 300px;
+  color: #fff;
+  background: #eee;
+  margin-bottom: 100px;
+}
+
+.box {
+  width: 80px;
+  height: 80px;
+}
+.box2 {
+  width: 80px;
+}
+
+.box-1 { background: tomato;}
+.box-2 { background: slategray;}
+.box-3 { background: pink;}
+.box-4 { background: skyblue;}
+.box-5 { background: limegreen;}
+
+.c { display: flex;}
+.c1 { flex-direction: column;}
+.c2 { flex-direction: row-reverse;}
+.c3 { flex-direction: column-reverse;}
+.c4 { flex-wrap: wrap;}
+.c5 { flex-wrap: wrap-reverse;}
+.c6 { flex-flow: wrap column;}
+.c7 { 
+  flex-flow: wrap;
+  justify-content: flex-end;
+}
+.c8 { 
+  flex-flow: wrap;
+  justify-content: center;
+}
+.c9 { 
+  flex-flow: wrap;
+  justify-content: space-between;
+}
+.c10 { 
+  flex-flow: wrap;
+  justify-content: space-around;
+}
+.c11 { 
+  flex-flow: wrap;
+  align-items: flex-end;
+}
+.c12 { 
+  flex-flow: wrap;
+  align-items: center;
+}
+.c13 { 
+  flex-flow: wrap;
+  align-items: stretch;
+}
+.c14 { 
+  flex-flow: wrap;
+  align-content: space-between;
+}
+.c15 { 
+  flex-flow: wrap;
+  align-content: space-around;
+}
+.c16 {
+  justify-content: center;
+  align-items: center;
+}
+
+.box-order1 { 
+  order: 1; /* boxを2,3,1の順に並べる */
+  align-self: flex-end; /* 垂直方向の位置 */
+}
+
+/*
+flex-grow
+flex-shrink
+flex-basis
+↓
+flex: 0 1 auto;
+
+flex: 30px;
+flex: 2;
+flex: 2 3;
+
+*/
+
+/*Flex-grow　⇢　子要素の伸びる比率*/
+.fg1 {flex: 1 1 80px;}
+.fg2 {flex: 2 1 80px;}
+.fg3 {flex: 3 1 80px;}
+
+/*
+300pxのボックスがあり、80pxのボックスが3つ内包されているので、
+余りは60pxである。
+比率を1:2:3にしたので60/6で1=10pxである。
+60px / 6 = 10px (1 flex grow)
+
+
+.b1 {flex: 1 1 80px;} 80px + 1 * 10px = 90px
+.b2 {flex: 2 1 80px;} 80px + 2 * 10px = 100px
+.b3 {flex: 3 1 80px;} 80px + 3 * 10px = 110px
+
+*/
+
+/*Flex-shrink　⇢　子要素の縮む比率*/
+.fs1 {flex: 0 1 120px;}
+.fs2 {flex: 0 2 120px;}
+.fs3 {flex: 0 3 120px;}
+
+/*
+余ってる横幅は60px
+
+(1*120) / (1*120 + 2*120 + 3*120) * 60 ... 10px
+(2*120) / (1*120 + 2*120 + 3*120) * 60 ... 20px
+(3*120) / (1*120 + 2*120 + 3*120) * 60 ... 30px
+
+fs1 120px - 10px ... 110px
+fs1 120px - 10px ... 100px
+fs1 120px - 10px ... 90px
+
+*/
+
+.mal { margin-left: auto;}
+
+.media {
+  display: flex;
+  margin-bottom: 1em;
+  align-items: flex-start;
+}
+.media img {
+  margin: 0 1em;
+  width:200px;
+  height: 210px;
+}
+.media p {
+  margin: 0;
+}
+.media-reverse {
+  flex-direction: row-reverse;
+}
+
+header, footer {
+  background: #eee;
+}
+footer {
+  margin-bottom: 100px;
+}
+.container2 {
+  display: flex;
+}
+.left {
+  flex: 0 100px;
+  background: tomato;
+}
+.right {
+  flex: 0 100px;
+  background: pink;
+}
+.center {
+  flex: 1;
+  background: skyblue;
+}
+
+@media all and (max-width: 500px) {
+  .container2 {
+    flex-direction: column;
+  }
+  .center {
+    order: 1;
+    flex: 100%;
+  }
+  .left {
+    order: 2;
+    flex: 100%;
+  }
+  .right {
+    order: 3;
+    flex: 100%;
+  }
+}
+
