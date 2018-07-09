@@ -19,14 +19,3 @@ Object {
   default: "太郎", 
   ...
 }*/
-
-
-//jQueryの場合は以下
-
-//var $ = require('jquery');
-//
-//$(function(){
-//  $("p").html("Width：" + $("div").width() + "px");
-//  console.log("ハロー");
-//})
-//

@@ -58,11 +58,11 @@ var Cat = exports.Cat = "ラテ";
 exports.default = Person;
 
 },{}],4:[function(require,module,exports){
-'use strict';
+"use strict";
 
-require('./app.js');
+require("./app.js");
 
-require('./jquery.js');
+require("./jquery.js");
 
 },{"./app.js":1,"./jquery.js":2}],5:[function(require,module,exports){
 /*!
